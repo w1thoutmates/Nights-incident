@@ -822,7 +822,25 @@ PlayerSettings:
   webGLWebAssemblyBigInt: 0
   webGLCloseOnQuit: 0
   webWasm2023: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    GameCoreScarlett: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    Kepler: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    LinuxHeadlessSimulation: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    Nintendo Switch: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    Nintendo Switch 2: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    PS4: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    PS5: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    QNX: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    Standalone: CROSS_PLATFORM_INPUT;UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    VisionOS: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    WebGL: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    Windows Store Apps: MOBILE_INPUT
+    XboxOne: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
+    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    tvOS: UNITY_POST_PROCESSING_STACK_V2;SORTIFY
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -843,8 +861,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Night's incident
-  metroPackageVersion: 
+  metroPackageName: Nightsincident
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -852,7 +870,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Night's incident
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Night's incident
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -919,7 +937,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: ec906811-beac-4943-9040-5696c266845b
   framebufferDepthMemorylessMode: 0
