@@ -20,6 +20,9 @@ public class InteractionSystem : MonoBehaviour
     
     [Header("References")]
     [SerializeField]
+    private Camera playerCamera;
+    
+    [SerializeField]
     private Transform heldPoint;
     
     [SerializeField]
@@ -31,10 +34,23 @@ public class InteractionSystem : MonoBehaviour
     private GameObject _heldObject; 
     private bool _canInteract = true;
     private Rigidbody _heldRb;
+
+    private Ray _ray;
+    private RaycastHit _hit;
     
     private float _holdTime = 0f;
     private float _requiredHoldTime = 1.0f;
     private bool _isActionTriggered = false;
+
+    void Start()
+    {
+        if (!playerCamera)
+        {
+            playerCamera = Camera.main;
+        }
+        
+        _ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+    }
     
     void Update()
     {
