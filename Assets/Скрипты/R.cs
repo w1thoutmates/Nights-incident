@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class R : MonoBehaviour
@@ -14,6 +15,8 @@ public class R : MonoBehaviour
     }
     
     [Header("References")]
+    
+    public TextMeshProUGUI interactionText;
     
     [Header("Sounds")]
     [SerializeField]

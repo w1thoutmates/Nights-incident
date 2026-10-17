@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class SimpleDoor : MonoBehaviour
@@ -8,6 +9,9 @@ public class SimpleDoor : MonoBehaviour
     public Vector3 openRotation = new Vector3(0, -90, 0);
     public Vector3 closedRotation = new Vector3(0, 0, 0);
     public float openSpeed = 50f;
+    public bool isDoorLocked = false;
+    public string doorLockedMessageText = "";
+    public float messageTextShowingDuration = 3f;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -30,6 +34,12 @@ public class SimpleDoor : MonoBehaviour
 
     public void ToggleDoorState()
     {
+        if (isDoorLocked)
+        {
+            //StartCoroutine(ShowDoorLockedMessageForFewSeconds());
+            return;
+        }
+        
         StopAllCoroutines();
         IsOpen = !IsOpen; // Reverse Door state ( if open => close, if close => open) 
 
@@ -73,4 +83,15 @@ public class SimpleDoor : MonoBehaviour
             audioSource.PlayOneShot(endSound);
         }
     }
+
+    // private IEnumerator ShowDoorLockedMessageForFewSeconds()
+    // {
+    //     R.Instance.interactionText.DOFade(255, 0.35f).From(0);
+    //     R.Instance.interactionText.text = doorLockedMessageText;
+    //     
+    //     yield return new WaitForSeconds(messageTextShowingDuration);
+    //     
+    //     R.Instance.interactionText.text = "";
+    //     R.Instance.interactionText.color = Color.white;
+    // }
 }

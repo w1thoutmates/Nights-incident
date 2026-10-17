@@ -1,12 +1,8 @@
-﻿using UnityEngine;
+﻿using StarterAssets;
 using Unity.Cinemachine;
-using UnityEngine.UI;
-#if ENABLE_INPUT_SYSTEM
+using UnityEngine;
 using UnityEngine.InputSystem;
-#endif
 
-namespace StarterAssets
-{
     [RequireComponent(typeof(CharacterController))]
 #if ENABLE_INPUT_SYSTEM
     [RequireComponent(typeof(PlayerInput))]
@@ -45,13 +41,7 @@ namespace StarterAssets
        public float ZoomSpeed = 10.0f;
        private Camera _playerCamera;
        private float _targetFOV;
-
-       [Header("Crosshair Settings")]
-       public bool EnableCrosshair = true;
-       public Image CrosshairImage;
-       public Sprite DefaultCrosshairSprite;
-       public Sprite AimCrosshairSprite;
-
+       
        [Space(10)]
        [Tooltip("The height the player can jump")]
        public float JumpHeight = 1.2f;
@@ -264,12 +254,18 @@ namespace StarterAssets
        {
            bool isAiming = Input.GetMouseButton(1); 
 
-           if (EnableCrosshair && CrosshairImage != null)
+           if (CrosshairController.Instance != null && 
+               CrosshairController.Instance.EnableCrosshair &&
+               CrosshairController.Instance.CrosshairImage != null)
            {
-               if (isAiming && AimCrosshairSprite != null)
-                   CrosshairImage.sprite = AimCrosshairSprite;
-               else if (DefaultCrosshairSprite != null)
-                   CrosshairImage.sprite = DefaultCrosshairSprite;
+               if (isAiming)
+               {
+                   CrosshairController.Instance.EnableAimMode();
+               }
+               else
+               {
+                   CrosshairController.Instance.DisableAimMode();
+               }
            }
 
            if (EnableDynamicFOV)
@@ -385,4 +381,3 @@ namespace StarterAssets
           Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
        }
     }
-}

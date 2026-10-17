@@ -102,7 +102,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _BleedAmount: 0.0015
+    - _BleedAmount: 0.002
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -115,12 +115,12 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FisheyeBend: 0.05
+    - _FisheyeBend: 0.08
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NoiseAmount: 0.004
+    - _NoiseAmount: 0.006
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0

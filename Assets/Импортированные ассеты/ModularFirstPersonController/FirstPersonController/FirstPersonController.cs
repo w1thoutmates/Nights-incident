@@ -15,8 +15,9 @@ using UnityEngine.UI;
     using System.Net;
 #endif
 
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonControllerOLD : MonoBehaviour
 {
+    /*
     private Rigidbody rb;
 
     #region Camera Movement Variables
@@ -529,10 +530,10 @@ public class FirstPersonController : MonoBehaviour
             timer = 0;
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
         }
-    }
+    } */
 }
 
-
+/*
 
 // Custom Editor
 #if UNITY_EDITOR
@@ -742,3 +743,4 @@ public class FirstPersonController : MonoBehaviour
 }
 
 #endif
+*/
