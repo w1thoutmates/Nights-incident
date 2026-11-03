@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612e7d4bfb14a614699834e4ae8f1b75, type: 3}
+  m_Name: VodkaEnergy
+  m_EditorClassIdentifier: 
+  drinkName: Vodka Energy
+  entries:
+  - ingredient: {fileID: 11400000, guid: e552169c4a094963a4a7d816673881d9, type: 2}
+    ml: 50
+  - ingredient: {fileID: 11400000, guid: 55b105566f2640fdb411f05a483a2ba7, type: 2}
+    ml: 100
+  requiresShake: 0
+  price: 12
+  toleranceMl: 5

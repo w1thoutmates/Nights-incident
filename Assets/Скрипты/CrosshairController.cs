@@ -79,7 +79,7 @@ public class CrosshairController : MonoBehaviour
             targetColor.a = 1f;
             
             CrosshairImage.DOColor(targetColor, 0.35f).SetEase(Ease.OutSine);
-            CrosshairImage.transform.DOScale(new Vector3(0.35f, 0.35f, 0.35f), 0.2f).SetEase(Ease.InOutSine);
+            CrosshairImage.transform.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.2f).SetEase(Ease.InOutSine);
         }
         else if (_isInteracting)
         {
@@ -96,7 +96,7 @@ public class CrosshairController : MonoBehaviour
             if (AimCrosshairSprite != null) CrosshairImage.sprite = AimCrosshairSprite;
             
             CrosshairImage.DOColor(_standartColor, 0.35f);
-            CrosshairImage.transform.DOScale(new Vector3(0.35f, 0.35f, 0.35f), 0.2f).SetEase(Ease.InOutSine);
+            CrosshairImage.transform.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.2f).SetEase(Ease.InOutSine);
         }
         else
         {

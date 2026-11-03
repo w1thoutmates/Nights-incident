@@ -14,7 +14,7 @@ public class ObjectiveManager : MonoBehaviour
     public void SetBigRedText(string text)
     {
         if (bigRedText)
-            bigRedText.text = text;
+            bigRedText.text = "* " + text;
     }
 
     public void SetSmallYellowText(int index, string text)
@@ -22,7 +22,7 @@ public class ObjectiveManager : MonoBehaviour
         if (smallYellowText != null && index >= 0 && index < smallYellowText.Length)
         {
             if (smallYellowText[index])
-                smallYellowText[index].text = text;
+                smallYellowText[index].text = "* " + text;
         }
     }
 

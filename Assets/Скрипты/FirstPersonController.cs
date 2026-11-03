@@ -1,4 +1,4 @@
-﻿using StarterAssets;
+using StarterAssets;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -41,6 +41,7 @@ using UnityEngine.InputSystem;
        public float ZoomSpeed = 10.0f;
        private Camera _playerCamera;
        private float _targetFOV;
+       // Зум всегда включён; ПКМ не зумит только пока в руке ёмкость (там ПКМ переливает)
        
        [Space(10)]
        [Tooltip("The height the player can jump")]
@@ -75,6 +76,10 @@ using UnityEngine.InputSystem;
        [Header("Cinemachine Zoom")]
        [Tooltip("Ссылка на Cinemachine Virtual Camera")]
        public CinemachineCamera cinemachineCamera;
+       [Tooltip("Камера для рук")]
+       public Camera handsCamera;
+       [Tooltip("Ссылка на InteractionSystem: пока в руке ёмкость, ПКМ не зумит")]
+       public InteractionSystem interaction;
        private float _defaultLensFOV = 60.0f;
 
        // cinemachine
@@ -109,6 +114,11 @@ using UnityEngine.InputSystem;
              return false;
              #endif
           }
+       }
+
+       private bool IsHoldingContainer
+       {
+          get { return interaction != null && interaction.IsHoldingContainer; }
        }
 
        private void Awake()
@@ -146,6 +156,11 @@ using UnityEngine.InputSystem;
                _defaultLensFOV = DefaultFOV;
            }
 
+           if (handsCamera && cinemachineCamera)
+           {
+               handsCamera.fieldOfView = cinemachineCamera.Lens.FieldOfView;
+           }
+
           // reset our timeouts on start
           _jumpTimeoutDelta = JumpTimeout;
           _fallTimeoutDelta = FallTimeout;
@@ -154,6 +169,11 @@ using UnityEngine.InputSystem;
           if (CinemachineCameraTarget != null)
           {
               _defaultPosY = CinemachineCameraTarget.transform.localPosition.y;
+          }
+
+          if (interaction == null)
+          {
+             interaction = FindFirstObjectByType<InteractionSystem>();
           }
 
           _targetFOV = DefaultFOV;
@@ -252,7 +272,7 @@ using UnityEngine.InputSystem;
 
        private void HandleZoomAndFOV()
        {
-           bool isAiming = Input.GetMouseButton(1); 
+           bool isAiming = Input.GetMouseButton(1) && !IsHoldingContainer;
 
            if (CrosshairController.Instance != null && 
                CrosshairController.Instance.EnableCrosshair &&
@@ -290,11 +310,18 @@ using UnityEngine.InputSystem;
 
            if (cinemachineCamera != null)
            {
-               cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(
+               float newFOV = Mathf.Lerp(
                    cinemachineCamera.Lens.FieldOfView, 
                    _targetFOV, 
                    Time.deltaTime * ZoomSpeed
                );
+
+               cinemachineCamera.Lens.FieldOfView = newFOV;
+
+               if (handsCamera != null)
+               {
+                   handsCamera.fieldOfView = newFOV;
+               }
            }
        }
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612e7d4bfb14a614699834e4ae8f1b75, type: 3}
+  m_Name: Mimosa
+  m_EditorClassIdentifier: 
+  drinkName: Mimosa
+  entries:
+  - ingredient: {fileID: 11400000, guid: 48ce446a930540bfad2131891b9b363b, type: 2}
+    ml: 75
+  - ingredient: {fileID: 11400000, guid: 38f90dda0aaa44b8ac8f7c49b5aae66f, type: 2}
+    ml: 75
+  requiresShake: 0
+  price: 12
+  toleranceMl: 5
